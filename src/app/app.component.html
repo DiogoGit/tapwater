@@ -1,3 +1,12 @@
-<span>{{ title }} app is running!</span>
+<header>
+  <app-menu></app-menu>
+</header>
 
-<app-alo-mundo></app-alo-mundo>
+<main>
+  <div [hidden]="this.isHiden">
+    teste
+  </div>
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
