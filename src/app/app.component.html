@@ -3,10 +3,10 @@
 </header>
 
 <main>
-  <div [hidden]="this.isHiden">
-    teste
-  </div>
   <router-outlet></router-outlet>
 </main>
 
-<app-footer></app-footer>
+<app-footer>
+  <span>{{ this?.currentDate | date: "HH:mm:ss"}}</span>
+  - Latitude: {{ this.coords?.latitude }} e Longitude: {{ this.coords?.longitude}}
+</app-footer>
