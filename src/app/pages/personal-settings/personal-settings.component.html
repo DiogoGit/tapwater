@@ -1,1 +1,77 @@
-<p>personal-settings works!</p>
+<div class="container contact">
+  <div class="row">
+    <div class="col s12">
+      <div
+        id="msg-login"
+        class="card-panel white-text"
+        [class.red]="!this.isSuccess"
+        [class.blue]="this.isSuccess"
+        *ngIf="this.isShowMessage"
+      >
+        {{ this.message }}
+      </div>
+    </div>
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+
+      <div class="input-field col s6">
+        <input
+          id="input-peso"
+          name="input-peso"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.personalSettings.peso"
+          pattern="^(0|[1-9]\d*)(,\d+)?$"
+          #peso="ngModel"
+          required
+        />
+        <label for="input-peso" class="active">Peso (KG) *</label>
+        <div class="red-text" [hidden]="peso.valid || peso.untouched">
+          Por favor, preencha o campo com o seu peso.
+        </div>
+      </div>
+
+      <div class="input-field col s6">
+        <input
+          id="input-altura"
+          name="input-altura"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.personalSettings.altura"
+          pattern="^(0|[1-9]\d*)(,\d+)?$"
+          #altura="ngModel"
+          required
+        />
+        <label for="input-altura" class="active">Altura (m) *</label>
+        <div class="red-text" [hidden]="altura.valid || altura.untouched">
+          Por favor, preencha o campo com a sua altura.
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <input
+          id="input-copo"
+          name="input-copo"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.personalSettings.copoPadrao"
+          pattern="^(0|[1-9]\d*)(\.\d+)?$"
+          #copo="ngModel"
+        />
+        <label for="input-copo" class="active">Copo padrão (ml)</label>
+        <div class="red-text" [hidden]="copo.valid || copo.untouched">
+          Por favor, preencha o com um valor numerico.
+        </div>
+      </div>
+
+      <div class="col s12">
+        <button
+          class="btn waves-effect cyan waves-light darken-1"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Salvar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
