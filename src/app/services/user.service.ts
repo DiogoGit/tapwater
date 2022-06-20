@@ -39,7 +39,7 @@ export class UserService {
     return this.httpClient
       .post<User>(this.URL, JSON.stringify(user), this.httpOptions).pipe(
         catchError(this.handleError)
-      );
+      ).subscribe();
   }
 
   // patch(user: User) {
