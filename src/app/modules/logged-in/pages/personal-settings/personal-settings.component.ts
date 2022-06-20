@@ -1,7 +1,7 @@
 import { PersonalSettingsService } from './personal-settings.service';
-import { PersonalSettings } from './../../model/PersonalSettings';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { PersonalSettings } from 'src/app/model/PersonalSettings';
 
 @Component({
   selector: 'app-personal-settings',

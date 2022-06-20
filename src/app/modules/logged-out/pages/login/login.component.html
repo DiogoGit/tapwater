@@ -1,0 +1,50 @@
+<div class="container contact">
+  <h4 style="text-align: center;">Sign in to TapWater</h4>
+  <div class="row">
+    <div class="col s12">
+      <div
+        id="msg-login"
+        class="card-panel red white-text"
+        style="display: none"
+      ></div>
+    </div>
+    <form class="col s12" (ngSubmit)="onLogin()">
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-username"
+            name="input-username"
+            type="text"
+            class="validate"
+            [(ngModel)]="this.loginUser.username"
+          />
+          <label for="input-username" class="active">Nome de Usuário</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="input-password"
+            name="input-password"
+            type="password"
+            class="validate"
+            [(ngModel)]="this.loginUser.password"
+          />
+          <label for="input-password" class="active">Senha</label>
+        </div>
+      </div>
+      <div class="col s12">
+        <button
+          class="btn waves-effect cyan waves-light darken-1"
+          type="submit"
+        >
+        Sign In
+        <i class="material-icons right">send</i>
+        </button>
+      </div>
+      <a routerLink="/register" >
+        <p>Cadastrar</p>
+      </a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "username": "tomaz.leite@gmail.com",
+      "password": "qwerty",
+      "name": "Tomaz Leite",
+      "cellPhone": "17 3265-1033",
+      "id": 1
+    }
+  ]
+}
