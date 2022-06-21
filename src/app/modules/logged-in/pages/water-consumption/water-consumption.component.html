@@ -1,1 +1,15 @@
-<p>water-consumption works!</p>
+<table class="highlight" *ngIf="consum && consum!.length > 0">
+  <thead>
+    <tr>
+      <th>Horario</th>
+      <th>Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let c of consum">
+      <td>{{ c.time }}</td>
+      <td>{{ c.quant }}</td>
+    </tr>
+  </tbody>
+</table>
