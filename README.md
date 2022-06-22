@@ -20,7 +20,7 @@ https://www.figma.com/file/hCEjT6ryRSSXuNdbio6KAa/Untitled?node-id=8%3A12
 - [x] Desabilitar o botão de submit enquanto o formulário está inválido.
 - [x] Fazer requisições a API com tratamento da resposta com Promises ou Observables.
 - [x] Cadastrar uma entidade no JSON Server.
-- [ ] Apresentar uma lista de dados com a diretiva estrutural ngFor.
-- [ ] Usar a diretiva ngIf
-- [ ] Formatar a apresentação de dados com Pipes.
+- [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
+- [x] Usar a diretiva ngIf
+- [x] Formatar a apresentação de dados com Pipes.
 - [ ] Build e deploy da aplicação.
