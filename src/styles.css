@@ -25,7 +25,7 @@ hr {
 
 @font-face {
   font-family: "airborne";
-  src: url("/assets/resources/fonts/airborne.ttf") format("truetype");
+  src: url("assets/resources/fonts/airborne.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

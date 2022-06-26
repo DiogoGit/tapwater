@@ -31,13 +31,15 @@ export class WaterConsumptionComponent implements OnInit {
           return;
         }
 
-        var peso = parseFloat(this.personalSettings.peso);
+        this.suggestedConsumption = 2400;
 
-        if (this.personalSettings == null || peso == 0 || peso == NaN) {
-          this.personalSettings = new PersonalSettings("", "", "");
-          this.suggestedConsumption = 2400;
-        } else {
-          this.suggestedConsumption = peso * 35;
+        if (this.personalSettings) {
+
+          var peso = parseFloat(this.personalSettings.peso);
+
+          if(peso || peso != 0){
+            this.suggestedConsumption = peso * 35;
+          }
         }
 
         this.percent = consumptionValue / this.suggestedConsumption;

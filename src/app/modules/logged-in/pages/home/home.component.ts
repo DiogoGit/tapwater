@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   addItemDefault() {
     var copoValue = parseFloat(this.personalSettings.copoPadrao);
-    if(copoValue == NaN || copoValue == 0){
+    if(!copoValue || copoValue == 0){
       alert("valor para copo padrão não encontrado!")
       return;
     }
