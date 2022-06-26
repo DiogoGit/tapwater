@@ -2,7 +2,6 @@ import { UserService } from './../../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/configs/auth/auth.service';
 import { User } from 'src/app/model/user';
-import { WebStorageUtil } from 'src/app/util/WebStorageUtil';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +9,6 @@ import { WebStorageUtil } from 'src/app/util/WebStorageUtil';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user!: User;
   loginUser!: User;
   constructor(private loginService: LoginService, private userService: UserService) { }
 
@@ -19,7 +17,6 @@ export class LoginComponent implements OnInit {
       this.loginService.login();
     }
     this.loginUser = new User('', '');
-    this.user = new User('tomaz.leite@gmail.com', 'qwerty');
   }
 
   onLogin() {
@@ -33,7 +30,6 @@ export class LoginComponent implements OnInit {
             'Oppsss! Por favor, verifique seu nome de usuário ou senha e tente novamente!'
           );
         }
-        console.log(user);
       }
     );
   }

@@ -21,7 +21,6 @@ export class PersonalSettingsComponent implements OnInit {
   constructor(private personalSettingsService: PersonalSettingsService) { }
 
   ngOnInit(): void {
-    console.log();
     this.personalSettings = this.personalSettingsService.getSettings();
     if (this.personalSettings == null) {
       this.personalSettings = new PersonalSettings("", "", "");

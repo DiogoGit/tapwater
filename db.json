@@ -6,6 +6,20 @@
       "name": "Tomaz Leite",
       "cellPhone": "17 3265-1033",
       "id": 1
+    },
+    {
+      "id": "885",
+      "username": "tomaz.leite@gmail.coma",
+      "password": "qwerty",
+      "name": "Teste Sa"
+    }
+  ],
+  "consumption": [
+    {
+      "id": "930",
+      "quant": 200,
+      "day": "2022-06-26",
+      "hour": "3:24 PM"
     }
   ]
 }
