@@ -1,6 +1,5 @@
 <div class="container contact">
   <h3 style="text-align: center;">Cadastro de Usuários</h3>
-  <hr />
   <div class="row">
     <form class="col s12" #form="ngForm" (submit)="onSubmit()">
       <div class="input-field col s12">
@@ -14,7 +13,7 @@
           #name="ngModel"
           required
         />
-        <label for="input-name" class="active">Nome Completo *</label>
+        <label for="input-name" class="active">Nome *</label>
         <div class="red-text" [hidden]="name.valid || name.untouched">
           Por favor, informe o seu nome completo.
         </div>
@@ -35,9 +34,6 @@
           #username="ngModel"
         />
         <label for="input-username" class="active">E-mail *</label>
-        <!-- <div class="red-text" [hidden]="username.valid || username.untouched">
-          Por favor, informe o seu username em letras minúsculas e sem espaços.
-        </div> -->
       </div>
 
       <div class="input-field col s12 l6">
@@ -53,7 +49,7 @@
         />
         <label for="input-password" class="active">Senha *</label>
         <div class="red-text" [hidden]="password.valid || password.untouched">
-          Por favor, nos informe a sua senha com pelo menos 6 caracteres!
+          Por favor, informe a sua senha com pelo menos 6 caracteres!
         </div>
       </div>
 
@@ -68,7 +64,7 @@
           pattern="{{ password.value }}"
           required
         />
-        <label for="input-user-repassword" class="active">Repita a senha *</label>
+        <label for="input-user-repassword" class="active">Confirmação de senha *</label>
         <div
           class="red-text"
           [hidden]="repassword.valid || repassword.untouched"
@@ -82,8 +78,7 @@
         type="submit"
         [disabled]="!form.valid"
       >
-        Enviar
-        <i class="material-icons right">send</i>
+        Cadastrar
       </button>
     </form>
   </div>

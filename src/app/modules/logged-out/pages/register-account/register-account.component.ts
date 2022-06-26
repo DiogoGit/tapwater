@@ -22,10 +22,19 @@ export class RegisterAccountComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.save(this.user);
-    this.loginService.login();
-    this.form.reset();
-    this.user = new User('', '');
+    this.userService.getByUsername(this.user.username).subscribe(
+      (data) => {
+        const user = data.find(element => this.user.password === element.password);
+        if (user) {
+          alert('Usuario indisponível tente outro usuario!');
+        } else {
+          this.userService.save(this.user)
+          this.loginService.login();
+          this.form.reset();
+          this.user = new User('', '');
+        }
+      }
+    );
   }
 
 }

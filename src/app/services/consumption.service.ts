@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { User } from '../model/user';
+import { Injectable } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
+import { Consumption } from '../model/Consumption';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  URL = 'http://localhost:3000/users';
+export class ConsumptionService {
+  URL = 'http://localhost:3000/consumption';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -29,17 +29,17 @@ export class UserService {
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
-  getByUsername(username: string) {
-    return this.httpClient.get<User[]>(`${this.URL}/?username=${username}`).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-  save(user: User) {
+  save(consum: Consumption) {
     return this.httpClient
-      .post<User>(this.URL, JSON.stringify(user), this.httpOptions).pipe(
+      .post<Consumption>(this.URL, JSON.stringify(consum), this.httpOptions).pipe(
         catchError(this.handleError)
       ).subscribe();
+  }
+
+  getByDay(time: string) {
+    return this.httpClient.get<Consumption[]>(`${this.URL}/?day=${time}`).pipe(
+      catchError(this.handleError)
+    );
   }
 
 }

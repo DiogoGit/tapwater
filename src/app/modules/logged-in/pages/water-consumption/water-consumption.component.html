@@ -1,3 +1,4 @@
+<h3 style="text-align: center;">{{ percent | percent:'1.2-2' }} de {{ suggestedConsumption }}ml</h3>
 <table class="highlight" *ngIf="consum && consum!.length > 0">
   <thead>
     <tr>
@@ -5,10 +6,9 @@
       <th>Quantidade</th>
     </tr>
   </thead>
-
   <tbody>
     <tr *ngFor="let c of consum">
-      <td>{{ c.time }}</td>
+      <td>{{ c.hour }}</td>
       <td>{{ c.quant }}</td>
     </tr>
   </tbody>

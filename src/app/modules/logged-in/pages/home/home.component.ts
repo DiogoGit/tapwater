@@ -1,5 +1,9 @@
+import { ConsumptionService } from './../../../../services/consumption.service';
+import { PersonalSettingsService } from './../personal-settings/personal-settings.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PersonalSettings } from 'src/app/model/PersonalSettings';
+import { Consumption } from 'src/app/model/Consumption';
 
 @Component({
   selector: 'app-home',
@@ -7,32 +11,33 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  id?: number;
-  isHiden = false;
-  modal = {
-    show: false,
-    title: '',
-    text: '',
-  };
+  personalSettings!: PersonalSettings;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private personalSettingsService: PersonalSettingsService, private consumService: ConsumptionService) { }
 
   ngOnInit(): void {
-    this.id = +this.route.snapshot.paramMap.get('id')!;
-    let numero = Math.floor(Math.random() * 10);
-    if (numero > 4) {
-      this.isHiden = true;
+    this.personalSettings = this.personalSettingsService.getSettings();
+    if (this.personalSettings == null) {
+      this.personalSettings = new PersonalSettings("", "", "");
     }
   }
 
-  onClickEvent() {
-    this.modal.show = true;
-    this.modal.title = 'Aviso!';
-    this.modal.text = `Id selecionado = ${this.id}`;
+  addItemDefault() {
+    var copoValue = parseFloat(this.personalSettings.copoPadrao);
+    if(copoValue == NaN || copoValue == 0){
+      alert("valor para copo padrão não encontrado!")
+      return;
+    }
+    this.addItem(copoValue);
   }
 
-  onCloseModal() {
-    this.modal.show = false;
+  addItem(value: number) {
+    var date = new Date();
+    var todayDate = date.toISOString().slice(0, 10);
+    var hour = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    var consum = new Consumption(value, todayDate, hour);
+    this.consumService.save(consum);
+    alert(`Valor adicionado com sucesso`);
   }
 
 }
